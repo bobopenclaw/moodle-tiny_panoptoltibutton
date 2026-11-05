@@ -95,10 +95,9 @@ class plugininfo extends plugin implements
                 . '&' . $PAGE->course->timecreated
         );
 
-        return [
+        $configuration = [
             // These will be mapped to a namespaced EditorOption in Tiny.
             'courseid' => $COURSE->id,
-            'tool' => !empty($ltitool) ? $ltitool : "",
             'wwwroot' => $CFG->wwwroot,
             'contentitempath' => '/lib/editor/tiny/plugins/panoptoltibutton/contentitem.php',
             'resourcebase' => $resourcebase,
@@ -106,5 +105,11 @@ class plugininfo extends plugin implements
             'panoptoltibuttonlongdescription' => get_string('panopto_button_long_description', 'tiny_panoptoltibutton'),
             'unprovisionederror' => get_string('panopto_button_unprovisioned_error', 'tiny_panoptoltibutton'),
         ];
+
+        if (!empty($ltitool)) {
+            $configuration['tool'] = $ltitool;
+        }
+
+        return $configuration;
     }
 }
