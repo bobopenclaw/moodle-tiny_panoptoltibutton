@@ -22,7 +22,6 @@
  */
 
 import Modal from 'tiny_panoptoltibutton/modal';
-import ModalFactory from 'core/modal_factory';
 import
     {
         getCourseId,
@@ -72,8 +71,7 @@ const getTemplateContext = (editor, data) => {
 
 const displayDialogue = async (editor, data = {}) => {
     editor.focus(true);
-    const modal = await ModalFactory.create({
-        type: Modal.TYPE,
+    const modal = await Modal.create({
         templateContext: getTemplateContext(editor, data),
         large: true,
         scrollable: false,

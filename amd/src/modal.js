@@ -22,7 +22,6 @@
  */
 
 import Modal from 'core/modal';
-import ModalRegistry from 'core/modal_registry';
 
 const PanoptoModal = class extends Modal {
     static TYPE = "tiny_panoptoltibutton/modal";
@@ -37,6 +36,6 @@ const PanoptoModal = class extends Modal {
     }
 };
 
-ModalRegistry.register(PanoptoModal.TYPE, PanoptoModal, PanoptoModal.TEMPLATE);
+PanoptoModal.registerModalType();
 
 export default PanoptoModal;
